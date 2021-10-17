@@ -1,0 +1,3 @@
+[submodule "vendor/wasi-nn"]
+	path = vendor/wasi-nn
+	url = https://github.com/WebAssembly/wasi-nn
