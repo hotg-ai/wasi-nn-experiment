@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["MatMulUnary","The pseudo Unary matrix multiplier. A is constant, B is the input"]]});

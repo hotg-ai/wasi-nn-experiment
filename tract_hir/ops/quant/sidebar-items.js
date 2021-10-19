@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["lookup_table",""],["offset_u8_as_i8",""],["quantize_linear_f32_i8",""],["quantize_linear_f32_u8",""],["quantize_linear_i8",""],["quantize_linear_u8",""]],"mod":[["scale",""]],"struct":[["DequantizeLinearF32",""],["LookupTable",""],["OffsetU8asI8",""],["QuantizeLinearI8",""],["QuantizeLinearU8",""],["Scale",""]]});

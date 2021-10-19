@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["Framework","A Framework that translate its model to tract core model."]]});

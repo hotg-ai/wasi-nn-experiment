@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["tract_nnef"] = [{"text":"impl <a class=\"trait\" href=\"tract_nnef/internal/tract_downcast_rs/__std/marker/trait.Copy.html\" title=\"trait tract_nnef::internal::tract_downcast_rs::__std::marker::Copy\">Copy</a> for <a class=\"enum\" href=\"tract_nnef/ast/enum.TypeName.html\" title=\"enum tract_nnef::ast::TypeName\">TypeName</a>","synthetic":false,"types":["tract_nnef::ast::TypeName"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

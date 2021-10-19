@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["PaddingSpec",""]],"mod":[["conv",""],["deconv",""],["pools",""]],"struct":[["ConvUnary",""],["DeconvUnary",""],["MaxPool",""],["Patch",""],["PatchAxis",""],["PatchSpec",""],["SumPool",""]]});

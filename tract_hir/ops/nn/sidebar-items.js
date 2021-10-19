@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["DataFormat",""],["Reducer",""]],"fn":[["sigmoid",""]],"struct":[["GlobalAvgPool",""],["GlobalLpPool",""],["GlobalMaxPool",""],["LayerHardmax",""],["LayerLogSoftmax",""],["LayerSoftmax",""],["Reduce",""]]});

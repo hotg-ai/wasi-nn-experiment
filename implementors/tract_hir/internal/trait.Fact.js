@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["tract_hir"] = [{"text":"impl <a class=\"trait\" href=\"tract_hir/internal/trait.Fact.html\" title=\"trait tract_hir::internal::Fact\">Fact</a> for <a class=\"struct\" href=\"tract_hir/infer/struct.InferenceFact.html\" title=\"struct tract_hir::infer::InferenceFact\">InferenceFact</a>","synthetic":false,"types":["tract_hir::infer::fact::InferenceFact"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

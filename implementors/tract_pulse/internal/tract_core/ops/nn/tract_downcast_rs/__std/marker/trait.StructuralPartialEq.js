@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["tract_pulse"] = [{"text":"impl <a class=\"trait\" href=\"tract_pulse/internal/tract_core/ops/nn/tract_downcast_rs/__std/marker/trait.StructuralPartialEq.html\" title=\"trait tract_pulse::internal::tract_core::ops::nn::tract_downcast_rs::__std::marker::StructuralPartialEq\">StructuralPartialEq</a> for <a class=\"struct\" href=\"tract_pulse/fact/struct.PulsedFact.html\" title=\"struct tract_pulse::fact::PulsedFact\">PulsedFact</a>","synthetic":false,"types":["tract_pulse::fact::PulsedFact"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

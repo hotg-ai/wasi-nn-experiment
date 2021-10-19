@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["DimLike","A super-trait for value acting as tensor dimensions in tract."]]});

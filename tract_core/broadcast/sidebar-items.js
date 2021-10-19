@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["multi_broadcast","Computes a shape, if any, to which all shapes can be broadcasted."]]});

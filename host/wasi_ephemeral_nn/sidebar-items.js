@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["add_to_linker","Adds all instance items to the specified `Linker`."],["compute",""],["get_output",""],["init_execution_context",""],["load",""],["set_input",""]],"trait":[["WasiEphemeralNn",""]]});

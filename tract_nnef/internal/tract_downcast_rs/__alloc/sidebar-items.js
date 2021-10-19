@@ -1,0 +1,1 @@
+initSidebarItems({"macro":[["format","Creates a `String` using interpolation of runtime expressions."],["vec","Creates a `Vec` containing the arguments."]],"mod":[["alloc","Memory allocation APIs"],["collections","Collection types."],["sync","Thread-safe reference-counting pointers."],["task","Types and Traits for working with asynchronous tasks."]]});

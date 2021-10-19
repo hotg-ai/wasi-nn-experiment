@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DEFAULT_FILTER",""]],"fn":[["main",""]],"mod":[["metadata",""],["types",""],["wasi_ephemeral_nn",""],["world",""]],"struct":[["Args",""]]});

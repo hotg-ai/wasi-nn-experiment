@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["AxisOp",""],["InOut",""]],"fn":[["change_axes",""],["perm_to_ops",""]],"struct":[["AxisChange",""],["AxisChangeConsequence",""]]});

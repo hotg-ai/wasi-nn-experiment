@@ -1,0 +1,4 @@
+(function() {var implementors = {};
+implementors["tract_core"] = [];
+implementors["tract_pulse_opl"] = [{"text":"impl <a class=\"trait\" href=\"tract_core/ops/trait.TypedOp.html\" title=\"trait tract_core::ops::TypedOp\">TypedOp</a> for <a class=\"struct\" href=\"tract_pulse_opl/ops/struct.Delay.html\" title=\"struct tract_pulse_opl::ops::Delay\">Delay</a>","synthetic":false,"types":["tract_pulse_opl::delay::Delay"]},{"text":"impl <a class=\"trait\" href=\"tract_core/ops/trait.TypedOp.html\" title=\"trait tract_core::ops::TypedOp\">TypedOp</a> for <a class=\"struct\" href=\"tract_pulse_opl/ops/struct.PulsePad.html\" title=\"struct tract_pulse_opl::ops::PulsePad\">PulsePad</a>","synthetic":false,"types":["tract_pulse_opl::pad::PulsePad"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

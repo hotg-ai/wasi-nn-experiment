@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `&#x2F;home&#x2F;runner&#x2F;.cargo&#x2F;registry&#x2F;src&#x2F;github.com-1ecc6299db9ec823&#x2F;tract-core-0.15.3&#x2F;src&#x2F;model&#x2F;mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../tract_core/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1"> 1</span>
+<span id="2"> 2</span>
+<span id="3"> 3</span>
+<span id="4"> 4</span>
+<span id="5"> 5</span>
+<span id="6"> 6</span>
+<span id="7"> 7</span>
+<span id="8"> 8</span>
+<span id="9"> 9</span>
+<span id="10">10</span>
+<span id="11">11</span>
+<span id="12">12</span>
+<span id="13">13</span>
+<span id="14">14</span>
+<span id="15">15</span>
+<span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+</pre><pre class="rust"><code><span class="doccomment">//! ## Models and their lifecycle</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! In order to reason on the model and performs optimisations, a model needs</span>
+<span class="doccomment">//! to be `typed`. This means all tensor exchanged between the nodes have a</span>
+<span class="doccomment">//! well defined element type (f32, i32, etc) and a shape ([1, 12, 53, 13]).</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! A model typically starts as an `InferenceModel`, with minimum or partial</span>
+<span class="doccomment">//! tensor type information. At this stage, the application developper can add</span>
+<span class="doccomment">//! types and shapes hints (like the model inputs and output element types</span>
+<span class="doccomment">//! and shapes), then `tract` will perform type inference propagating this</span>
+<span class="doccomment">//! information. Hopefully `tract` will be able to infer a type and shape for</span>
+<span class="doccomment">//! all tensors in the model graph.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! At this stage, the model can be converted into a `TypedModel`.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! InferanceModel and TypeModel are two variants of `Graph`, Parameterized</span>
+<span class="doccomment">//! by a Fact implementation: TypedModel uses TypedFact, enforcing</span>
+<span class="doccomment">//! complete determination of element type and shape, and allowing a constant</span>
+<span class="doccomment">//! value for the tensor. InferenceModel uses InferenceFact, which can handle</span>
+<span class="doccomment">//! partial information.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! We call `declutter` the process getting the network closer to a normal</span>
+<span class="doccomment">//! form:.  This normal form is akin to an IR in compiler technologies. This is</span>
+<span class="doccomment">//! the favourite form on which tract optimisation is implemented.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! For instance an Add node adding a constant input to a variable</span>
+<span class="doccomment">//! tensor input would be replaced by an unary Add operator taking only the</span>
+<span class="doccomment">//! variable input and for which the constant to add is a fixed construction</span>
+<span class="doccomment">//! attribute. In the same decluttering process, we try and replace proprietary</span>
+<span class="doccomment">//! operators (eg, from TensorFlow) by tract core operators: it is not always</span>
+<span class="doccomment">//! possible to simply map TensorFlow operators to tract-core while loading the</span>
+<span class="doccomment">//! network: their interfaces can be different (what is an input, what is an</span>
+<span class="doccomment">//! attribute) and constant propagation may be necessary before the right</span>
+<span class="doccomment">//! core operator could be chosen.</span>
+<span class="doccomment">//!</span>
+<span class="kw">use</span> <span class="ident">std::collections::HashMap</span>;
+<span class="kw">use</span> <span class="ident">std::str</span>;
+
+<span class="kw">mod</span> <span class="ident">fact</span>;
+<span class="kw">mod</span> <span class="ident">graph</span>;
+<span class="kw">mod</span> <span class="ident">node</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">order</span>;
+<span class="kw">mod</span> <span class="ident">patch</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">translator</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">typed</span>;
+
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::fact</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::graph</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::node</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::order::eval_order</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::patch::ModelPatch</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::ops</span>::{<span class="ident">Op</span>, <span class="ident">TypedOp</span>};
+
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">typed</span>::<span class="kw-2">*</span>;
+</code></pre></div>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="tract_core" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
+    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script>
+</body></html>

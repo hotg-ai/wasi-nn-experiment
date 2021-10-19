@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["array",""],["assignment",""],["ident",""],["ints",""],["invocation",""],["lident",""],["logical",""],["named_arg",""],["numeric",""],["string",""],["to_fragment_def",""],["to_proto_model",""],["tuple_2",""],["tuple_3",""],["tuple_4",""]],"struct":[["IntoAst",""],["RequiredTensorParameter",""]]});

@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["host"] = [{"text":"impl <a class=\"trait\" href=\"wiggle/guest_type/trait.GuestErrorType.html\" title=\"trait wiggle::guest_type::GuestErrorType\">GuestErrorType</a> for <a class=\"enum\" href=\"host/types/enum.NnErrno.html\" title=\"enum host::types::NnErrno\">NnErrno</a>","synthetic":false,"types":["host::types::NnErrno"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

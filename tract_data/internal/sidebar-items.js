@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["TDim",""]],"struct":[["TensorView",""]],"trait":[["ClampCast",""],["DimLike","A super-trait for value acting as tensor dimensions in tract."],["ToDim","Convenience trait to convert values to TDim."]]});

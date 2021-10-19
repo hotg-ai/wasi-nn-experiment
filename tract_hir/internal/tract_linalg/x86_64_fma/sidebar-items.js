@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["plug",""]],"mod":[["mmm",""],["sigmoid",""],["tanh",""]]});

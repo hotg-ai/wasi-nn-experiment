@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["MatMul","The binary op. It will declutter to MatMulUnary if either A or B is constant."]]});

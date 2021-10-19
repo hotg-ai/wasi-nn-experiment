@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["InputMapping",""],["StateInitializer",""]],"struct":[["LirScan",""],["OutputMapping",""],["Scan",""]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["DataFormat",""],["Reducer",""]],"fn":[["sigmoid",""]],"struct":[["BaseDataShape",""],["Reduce",""],["Sigmoid",""]],"type":[["DataShape",""],["SymDataShape",""]]});
