@@ -1,10 +1,26 @@
-# wasi-nn Experiment
+# WASI-NN Experiment
 
 [![Continuous integration](https://github.com/hotg-ai/wasi-nn-experiment/workflows/Continuous%20integration/badge.svg?branch=master)](https://github.com/hotg-ai/wasi-nn-experiment/actions)
 
 ([API Docs])
 
-> **TODO:** Write up an interesting description.
+Experiments with [`wasmtime`][wasmtime] and [the `wasi-nn` proposal][wasi-nn].
+
+## Getting Started
+
+To use this experiment, you will first need to compile the guest code to
+WebAssembly.
+
+```shell
+$ cargo build --target wasm32-unknown-unknown --package guest
+```
+
+We can then use the host application to load the WebAssembly module and
+run the model it contains.
+
+```shell
+$ cargo  --package host -- target/wasm32-unknown-unknown/debug/guest.wasm
+```
 
 ## License
 
@@ -32,3 +48,5 @@ do their best to avoid them, and welcome help in analysing and fixing them.
 
 [API Docs]: https://hotg-ai.github.io/wasi-nn-experiment
 [crev]: https://github.com/crev-dev/cargo-crev
+[wasmtime]: https://github.com/bytecodealliance/wasmtime
+[wasi-nn]: https://github.com/WebAssembly/wasi-nn
