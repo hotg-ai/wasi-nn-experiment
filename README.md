@@ -4,7 +4,8 @@
 
 ([API Docs])
 
-Experiments with [`wasmtime`][wasmtime] and [the `wasi-nn` proposal][wasi-nn].
+Experiments with [`wasmtime`][wasmtime], [the `wasi-nn` proposal][wasi-nn],
+and [`tract`][tract].
 
 ## Getting Started
 
@@ -62,3 +63,4 @@ do their best to avoid them, and welcome help in analysing and fixing them.
 [crev]: https://github.com/crev-dev/cargo-crev
 [wasmtime]: https://github.com/bytecodealliance/wasmtime
 [wasi-nn]: https://github.com/WebAssembly/wasi-nn
+[tract]: https://github.com/sonos/tract
