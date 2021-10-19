@@ -52,7 +52,7 @@ fn main() -> Result<(), Error> {
         .call(&mut store, ())
         .context("An error occurred while calling start()")?;
 
-    log::info!("Completed successfully");
+    log::info!("Completed successfully!");
 
     Ok(())
 }

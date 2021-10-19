@@ -22,6 +22,18 @@ run the model it contains.
 $ cargo  --package host -- target/wasm32-unknown-unknown/debug/guest.wasm
 ```
 
+During development, I use `cargo watch` and this one-liner to automatically
+recompile and re-run the guest after every change:
+
+```shell
+$ cargo watch --clear \
+    -x "check --workspace" \
+    -x "test --workspace" \
+    -x "doc --workspace --document-private-items" \
+    -x "build --package guest --target wasm32-unknown-unknown" \
+    -x "run --package host -- target/wasm32-unknown-unknown/debug/guest.wasm"
+```
+
 ## License
 
 This project is licensed under either of
